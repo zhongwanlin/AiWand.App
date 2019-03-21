@@ -10,12 +10,12 @@ mybuildpath="${workpath}/src/AiWand.Api";
 /////// 编译构建（主要工作编译程序，生成镜像，将镜像推送到私有仓）
 node 
 {
-    stage('获取代码'){
-       dir(workpath){
-           git branch: master,
-           url: gitpath
-       } 
-    }
+    // stage('获取代码'){
+    //    dir(workpath){
+    //        git branch: master,
+    //        url: gitpath
+    //    } 
+    // }
     stage('编译'){
         dir(mybuildpath){
             sh '''rm bin/publish -rf
