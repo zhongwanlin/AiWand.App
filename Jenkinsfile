@@ -28,9 +28,13 @@ node
         }
     }
     stage('构建') {
-        docker.withRegistry('https://hub.docker.com/') {
-            def customImage = docker.build("${projectname}/${applicationname}:${version} ${mybuildpath}")
-				customImage.push();
+         try{
+            docker.withRegistry('https://hub.docker.com/') {
+                def customImage = docker.build("${projectname}/${applicationname}:${version}"," ${mybuildpath}")
+                    customImage.push();
+            }
+        }catch(e){
+            throw e;
         }
     }
 
