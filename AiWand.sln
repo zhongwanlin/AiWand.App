@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{7895E7EA-D420-48BA-AE91-5C670B020A13}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B718A395-32DE-40CD-8956-424CABB398DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AiWand.Api", "src\AiWand.Api\AiWand.Api.csproj", "{262134AD-C016-4842-944D-A1152BC130A7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AiWand.Core", "src\AiWand.Core\AiWand.Core.csproj", "{5B60ED7B-3521-47D8-A06C-82327D65641B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AiWand.Data", "src\AiWand.Data\AiWand.Data.csproj", "{C820CF62-7422-4364-9109-77B93414C0A6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AiWand.Service", "src\AiWand.Service\AiWand.Service.csproj", "{10C9B24D-9013-4F13-8AE1-010714AEB698}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AiWand.Test", "src\Test\AiWand.Test\AiWand.Test.csproj", "{12A37F8D-E4C9-44EE-AC18-4228E6FCC5C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{262134AD-C016-4842-944D-A1152BC130A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{262134AD-C016-4842-944D-A1152BC130A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{262134AD-C016-4842-944D-A1152BC130A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{262134AD-C016-4842-944D-A1152BC130A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B60ED7B-3521-47D8-A06C-82327D65641B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B60ED7B-3521-47D8-A06C-82327D65641B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B60ED7B-3521-47D8-A06C-82327D65641B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B60ED7B-3521-47D8-A06C-82327D65641B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C820CF62-7422-4364-9109-77B93414C0A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C820CF62-7422-4364-9109-77B93414C0A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C820CF62-7422-4364-9109-77B93414C0A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C820CF62-7422-4364-9109-77B93414C0A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10C9B24D-9013-4F13-8AE1-010714AEB698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C9B24D-9013-4F13-8AE1-010714AEB698}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C9B24D-9013-4F13-8AE1-010714AEB698}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C9B24D-9013-4F13-8AE1-010714AEB698}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A37F8D-E4C9-44EE-AC18-4228E6FCC5C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A37F8D-E4C9-44EE-AC18-4228E6FCC5C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A37F8D-E4C9-44EE-AC18-4228E6FCC5C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A37F8D-E4C9-44EE-AC18-4228E6FCC5C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{262134AD-C016-4842-944D-A1152BC130A7} = {B718A395-32DE-40CD-8956-424CABB398DC}
+		{5B60ED7B-3521-47D8-A06C-82327D65641B} = {B718A395-32DE-40CD-8956-424CABB398DC}
+		{C820CF62-7422-4364-9109-77B93414C0A6} = {B718A395-32DE-40CD-8956-424CABB398DC}
+		{10C9B24D-9013-4F13-8AE1-010714AEB698} = {B718A395-32DE-40CD-8956-424CABB398DC}
+		{12A37F8D-E4C9-44EE-AC18-4228E6FCC5C0} = {7895E7EA-D420-48BA-AE91-5C670B020A13}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {80384037-5148-4ADC-B9BF-3626DBD9A08C}
+	EndGlobalSection
+EndGlobal
