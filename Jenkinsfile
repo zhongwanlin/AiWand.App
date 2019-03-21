@@ -1,7 +1,7 @@
 projectname="AiWand";
 def gitpath="https://github.com/zhongwanlin/AiWand.App.git";
-workpath="/root/project/dht/AiWand";///share/wms-jenkins
-def dllpath="/root/project/dht/AiWand/lib";//share/wms-jenkins/lib
+workpath="/home/zhongwl01/project/AiWand";///share/wms-jenkins
+def dllpath="/home/zhongwl01/project/AiWand/lib";//share/wms-jenkins/lib
 version="v2.1";
    
 applicationname="App";
@@ -17,7 +17,6 @@ node
                 url: gitpath
            }
         }catch(e){
-            echo "获取代码${e}";
             throw e;
         }
     }
