@@ -29,8 +29,7 @@ node
     }
     stage('构建') {
         docker.withRegistry('https://hub.docker.com/') {
-            sh '''cd ${mybuildpath}'''
-            def customImage = docker.build("${projectname}/${applicationname}:${version}")
+            def customImage = docker.build("${projectname}/${applicationname}:${version} ${mybuildpath}")
 				customImage.push();
         }
     }
