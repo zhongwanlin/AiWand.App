@@ -1,7 +1,7 @@
 projectname="AiWand";
 def gitpath="https://github.com/zhongwanlin/AiWand.App.git";
-workpath="/root/project/dht/AiWand.App";///share/wms-jenkins
-def dllpath="/root/project/dht/AiWand.App/lib";//share/wms-jenkins/lib
+workpath="/root/project/dht/AiWand";///share/wms-jenkins
+def dllpath="/root/project/dht/AiWand/lib";//share/wms-jenkins/lib
 version="v2.1";
    
 applicationname="App";
