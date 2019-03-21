@@ -1,9 +1,9 @@
-FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
+FROM microsoft/aspnetcore AS base
 WORKDIR /app
 EXPOSE 49662
 EXPOSE 44338
 
-FROM microsoft/dotnet:2.1-sdk AS build
+FROM microsoft/aspnetcore AS build
 WORKDIR /src
 COPY ["../AiWand.Api/AiWand.Api.csproj", "../AiWand.Api/"]
 RUN dotnet restore "../AiWand.Api/AiWand.Api.csproj"
