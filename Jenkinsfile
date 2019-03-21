@@ -13,11 +13,12 @@ node
     stage('获取代码'){
         try{
             dir(workpath){
-                git branch: master,
+                git branch: "master",
                 url: gitpath
            }
         }catch(e){
             echo "获取代码${e}";
+            throw e;
         }
     }
     stage('编译'){
