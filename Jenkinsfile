@@ -29,9 +29,10 @@ node
     }
     stage('构建镜像') {
          try{
-            def customImage = docker.build("${projectname}/${applicationname}:${version}"," ${mybuildpath}")
-            customImage.push();
-            
+            docker.withRegistry('zhongwl') {
+                def customImage = docker.build("${projectname}/${applicationname}:${version}"," ${mybuildpath}")
+                    customImage.push();
+            }
         }catch(e){
             throw e;
         }
@@ -57,11 +58,12 @@ def DropContainer(){
 //部署
 def DeployApplication(){
     try{
-            def image=docker.image("${projectname}/${applicationname}:${version}");
-            image.pull();
-            def runstr=" --name='${applicationname}' -p 80:80 ";
-            image.run(runstr);
-            	
+            docker.withRegistry('zhongwl') {
+                def image=docker.image("${projectname}/${applicationname}:${version}");
+                image.pull();
+                def runstr=" --name='${applicationname}' -p 80:80 ";
+                image.run(runstr);
+            }	
         }catch(e){
         throw e;
     }
