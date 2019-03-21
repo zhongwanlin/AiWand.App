@@ -1,10 +1,10 @@
-projectname="AiWand";
+projectname="aiwand";
 def gitpath="https://github.com/zhongwanlin/AiWand.App.git";
 workpath="/home/zhongwl01/project/AiWand";///share/wms-jenkins
 def dllpath="/home/zhongwl01/project/AiWand/lib";//share/wms-jenkins/lib
-version="v2.1";
+version="v1.0";
    
-applicationname="App";
+applicationname="app";
 mybuildpath="${workpath}/src/AiWand.Api";
 
 /////// 编译构建（主要工作编译程序，生成镜像，将镜像推送到私有仓）
@@ -54,10 +54,14 @@ def DropContainer(){
 
 //部署
 def DeployApplication(){
-        docker.withRegistry('https://hub.docker.com') {
-            def image=docker.image("https://hub.docker.com/${projectname}/${applicationname}:${version}");
-            image.pull();
-            def runstr=" --name='${applicationname}' -p 80:80 ";
-            image.run(runstr);
-        }	
+    try{
+            docker.withRegistry('https://hub.docker.com') {
+                def image=docker.image("https://hub.docker.com/${projectname}/${applicationname}:${version}");
+                image.pull();
+                def runstr=" --name='${applicationname}' -p 80:80 ";
+                image.run(runstr);
+            }	
+        }catch(e){
+        throw e;
+    }
 }
