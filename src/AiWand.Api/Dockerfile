@@ -1,14 +1,17 @@
-FROM microsoft/aspnetcore AS base
+FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
 WORKDIR /app
-EXPOSE 49662
-EXPOSE 44338
+EXPOSE 80
+EXPOSE 443
 
-FROM microsoft/aspnetcore AS build
+FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
-COPY ["../AiWand.Api/AiWand.Api.csproj", "../AiWand.Api/"]
-RUN dotnet restore "../AiWand.Api/AiWand.Api.csproj"
+COPY ["src/AiWand.Api/AiWand.Api.csproj", "src/AiWand.Api/"]
+COPY ["src/AiWand.Core/AiWand.Core.csproj", "src/AiWand.Core/"]
+COPY ["src/AiWand.Service/AiWand.Service.csproj", "src/AiWand.Service/"]
+COPY ["src/AiWand.Data/AiWand.Data.csproj", "src/AiWand.Data/"]
+RUN dotnet restore "src/AiWand.Api/AiWand.Api.csproj"
 COPY . .
-WORKDIR "/src/../AiWand.Api"
+WORKDIR "/src/src/AiWand.Api"
 RUN dotnet build "AiWand.Api.csproj" -c Release -o /app
 
 FROM build AS publish
