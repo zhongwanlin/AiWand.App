@@ -59,7 +59,7 @@ def DropContainer(){
 def DeployApplication(){
     try{
             docker.withRegistry('https://hub.docker.com') {
-                def image=docker.image("https://hub.docker.com/${projectname}/${applicationname}:${version}");
+                def image=docker.image("${projectname}/${applicationname}:${version}");
                 image.pull();
                 def runstr=" --name='${applicationname}' -p 80:80 ";
                 image.run(runstr);
