@@ -33,7 +33,7 @@ node
     }
     stage('构建镜像') {
          try{
-            docker.withRegistry('',$DOCKER_HUB) {
+            docker.withRegistry('',DOCKER_HUB) {
                 def customImage = docker.build("${projectname}-${applicationname}:${version}"," ${mybuildpath}")
                     customImage.push();
             }
@@ -62,7 +62,7 @@ def DropContainer(){
 //部署
 def DeployApplication(){
     try{
-            docker.withRegistry('',$DOCKER_HUB) {
+            docker.withRegistry('',DOCKER_HUB) {
                 def image=docker.image("${projectname}-${applicationname}:${version}");
                 image.pull();
                 def runstr=" --name='${applicationname}' -p 80:5000 ";
