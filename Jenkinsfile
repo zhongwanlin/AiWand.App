@@ -7,6 +7,10 @@ version="v2.0";
 applicationname="app";
 mybuildpath="${workpath}/src/AiWand.Api";
 
+environment {
+                DOCKER_HUB = credentials('dockerhub')
+            }
+
 /////// 编译构建（主要工作编译程序，生成镜像，将镜像推送到私有仓）
 node 
 {
@@ -29,7 +33,7 @@ node
     }
     stage('构建镜像') {
          try{
-            docker.withRegistry('',credentials('dockerhub')) {
+            docker.withRegistry('',$DOCKER_HUB)) {
                 def customImage = docker.build("${projectname}-${applicationname}:${version}"," ${mybuildpath}")
                     customImage.push();
             }
@@ -58,7 +62,7 @@ def DropContainer(){
 //部署
 def DeployApplication(){
     try{
-            docker.withRegistry('',credentials('dockerhub')) {
+            docker.withRegistry('',$DOCKER_HUB) {
                 def image=docker.image("${projectname}-${applicationname}:${version}");
                 image.pull();
                 def runstr=" --name='${applicationname}' -p 80:5000 ";
