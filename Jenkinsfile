@@ -10,6 +10,9 @@ mybuildpath="${workpath}/src/AiWand.Api";
 /////// 编译构建（主要工作编译程序，生成镜像，将镜像推送到私有仓）
 node 
 {
+    environment {
+       registryCredential = 'zwlAP0706439'
+    }
     stage('获取代码'){
         try{
             dir(workpath){
@@ -29,7 +32,7 @@ node
     }
     stage('构建镜像') {
          try{
-            docker.withRegistry('','zhongwl') {
+            docker.withRegistry('',registryCredential) {
                 def customImage = docker.build("${projectname}-${applicationname}:${version}"," ${mybuildpath}")
                     customImage.push();
             }
@@ -58,7 +61,7 @@ def DropContainer(){
 //部署
 def DeployApplication(){
     try{
-            docker.withRegistry('','zhongwl') {
+            docker.withRegistry('',registryCredential) {
                 def image=docker.image("${projectname}-${applicationname}:${version}");
                 image.pull();
                 def runstr=" --name='${applicationname}' -p 80:5000 ";
