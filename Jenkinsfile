@@ -2,7 +2,7 @@ projectname="aiwand";
 def gitpath="https://github.com/zhongwanlin/AiWand.App.git";
 workpath="/home/zhongwl01/project/AiWand";///share/wms-jenkins
 def dllpath="/home/zhongwl01/project/AiWand/lib";//share/wms-jenkins/lib
-version="v1.0";
+version="v2.0";
    
 applicationname="app";
 mybuildpath="${workpath}/src/AiWand.Api";
@@ -29,7 +29,7 @@ node
     }
     stage('构建镜像') {
          try{
-            docker.withRegistry('https://hub.docker.com/') {
+            docker.withRegistry('zhongwl') {
                 def customImage = docker.build("${projectname}-${applicationname}:${version}"," ${mybuildpath}")
                     customImage.push();
             }
@@ -58,7 +58,7 @@ def DropContainer(){
 //部署
 def DeployApplication(){
     try{
-            docker.withRegistry('https://hub.docker.com/') {
+            docker.withRegistry('zhongwl') {
                 def image=docker.image("${projectname}-${applicationname}:${version}");
                 image.pull();
                 def runstr=" --name='${applicationname}' -p 80:5000 ";
