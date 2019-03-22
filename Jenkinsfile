@@ -33,7 +33,7 @@ node
     }
     stage('构建镜像') {
          try{
-            docker.withRegistry('',$DOCKER_HUB)) {
+            docker.withRegistry('',$DOCKER_HUB) {
                 def customImage = docker.build("${projectname}-${applicationname}:${version}"," ${mybuildpath}")
                     customImage.push();
             }
