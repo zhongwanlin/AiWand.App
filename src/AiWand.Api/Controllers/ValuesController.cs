@@ -21,8 +21,8 @@ namespace AiWand.Api.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            //return new JsonResult(_userService.GetUser("1"));
-            return new JsonResult(new { Code = 200, Message = "请求成功" });
+            return new JsonResult(_userService.GetUser("1"));
+            //return new JsonResult(new { Code = 200, Message = "请求成功" });
         }
 
         // GET api/values/5
