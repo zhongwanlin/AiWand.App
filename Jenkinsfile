@@ -48,8 +48,8 @@ node
 //销毁现有容器
 def DropContainer(){
 	try{
-        sh '''docker stop ${applicationname}
-        docker rm ${applicationname}'''
+        sh 'docker stop' ${applicationname} 
+        sh 'docker rm' ${applicationname}
     }catch(e){
         echo "第一次构建${e}";
     }
