@@ -61,7 +61,7 @@ def DeployApplication(){
             docker.withRegistry('https://hub.docker.com/','dockerhub') {
                 def image=docker.image("${projectname}-${applicationname}:${version}");
                 image.pull();
-                def runstr=" --name='${applicationname}' -p 80:5000 ";
+                def runstr=" --name='${applicationname}' -p 8081:5000 ";
                 image.run(runstr);
             }	
         }catch(e){
