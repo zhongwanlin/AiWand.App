@@ -4,7 +4,7 @@ workpath="/home/zhongwl01/project/AiWand";///share/wms-jenkins
 def dllpath="/home/zhongwl01/project/AiWand/lib";//share/wms-jenkins/lib
 version="v2.0";
    
-applicationname="app";
+applicationname="aiwand-app";
 mybuildpath="${workpath}/src/AiWand.Api";
 
 /////// 编译构建（主要工作编译程序，生成镜像，将镜像推送到私有仓）
@@ -48,8 +48,8 @@ node
 //销毁现有容器
 def DropContainer(){
 	try{
-        sh 'docker stop' ${applicationname} 
-        sh 'docker rm' ${applicationname}
+        sh 'docker stop aiwand-app'
+        sh 'docker rm aiwand-app'
     }catch(e){
         echo "第一次构建${e}";
     }
