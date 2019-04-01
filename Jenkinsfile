@@ -29,7 +29,7 @@ node
     }
     stage('构建镜像') {
          try{
-            docker.withRegistry('','zwlAP0706439') {
+            docker.withRegistry('https://registry.hub.docker.com','zhongwl') {
                 def customImage = docker.build("${projectname}-${applicationname}:${version}"," ${mybuildpath}")
                     customImage.push();
             }
@@ -58,7 +58,7 @@ def DropContainer(){
 //部署
 def DeployApplication(){
     try{
-            docker.withRegistry('','zwlAP0706439') {
+            docker.withRegistry('https://hub.docker.com/','zhongwl') {
                 def image=docker.image("${projectname}-${applicationname}:${version}");
                 image.pull();
                 def runstr=" --name='${applicationname}' -p 80:5000 ";
