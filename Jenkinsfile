@@ -30,7 +30,7 @@ node
     stage('构建镜像') {
          try{
             docker.withRegistry('https://registry.hub.docker.com','dockerhub') {
-                def customImage = docker.build("${projectname}-${applicationname}:${version}"," ${mybuildpath}")
+                def customImage = docker.build("zhongwl/${projectname}-${applicationname}:${version}"," ${mybuildpath}")
                     customImage.push();
             }
         }catch(e){
