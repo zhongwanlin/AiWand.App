@@ -4,7 +4,7 @@ workpath="/home/zhongwl01/project/AiWand";///share/wms-jenkins
 def dllpath="/home/zhongwl01/project/AiWand/lib";//share/wms-jenkins/lib
 version="v2.0";
    
-applicationname="aiwand-app";
+applicationname="app";
 mybuildpath="${workpath}/src/AiWand.Api";
 
 /////// 编译构建（主要工作编译程序，生成镜像，将镜像推送到私有仓）
@@ -61,7 +61,7 @@ def DeployApplication(){
             docker.withRegistry('','dockerhub') {
                 def image=docker.image("zhongwl/${projectname}-${applicationname}:${version}");
                 image.pull();
-                def runstr=" --name='${applicationname}' -p 8081:5000 ";
+                def runstr=" --name=aiwand-app -p 8081:5000 ";
                 image.run(runstr);
             }	
         }catch(e){
