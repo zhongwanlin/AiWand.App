@@ -58,8 +58,8 @@ def DropContainer(){
 //部署
 def DeployApplication(){
     try{
-            docker.withRegistry('https://hub.docker.com/','dockerhub') {
-                def image=docker.image("${projectname}-${applicationname}:${version}");
+            docker.withRegistry('','dockerhub') {
+                def image=docker.image("zhongwl/${projectname}-${applicationname}:${version}");
                 image.pull();
                 def runstr=" --name='${applicationname}' -p 8081:5000 ";
                 image.run(runstr);
