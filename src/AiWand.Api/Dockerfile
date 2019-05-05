@@ -5,5 +5,7 @@ COPY bin/publish /app
 ARG ENVIRONMENT
 ENV ASPNETCORE_ENVIRONMENT=${ENVIRONMENT} ASPNETCORE_URLS="http://*:5000"
 
+VOLUME /home/eShopOnContainers
+
 EXPOSE 5000
 ENTRYPOINT ["dotnet", "AiWand.Api.dll"]
