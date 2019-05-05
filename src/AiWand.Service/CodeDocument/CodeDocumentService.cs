@@ -20,7 +20,7 @@ namespace AiWand.Service.CodeDocument
             //判断是否已经生成文档
 
             //读取代码所在的路径
-            string path = @"D:\Work\Zhidian\project\dev-ams102\wholesale";
+            string path = @"/home/eShopOnContainers";
             StringBuilder contents = new StringBuilder() ;
             if (Directory.Exists(path))
             {
