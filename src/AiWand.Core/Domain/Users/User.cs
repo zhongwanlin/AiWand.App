@@ -74,5 +74,10 @@ namespace AiWand.Core.Domain
         /// 备注
         /// </summary>
         public string Remark { get; set; }
+
+        /// <summary>
+        /// 用户登录唯一标识
+        /// </summary>
+        public string Token { get; set; }
     }
 }
