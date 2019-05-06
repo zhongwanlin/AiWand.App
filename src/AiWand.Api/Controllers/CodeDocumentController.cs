@@ -32,9 +32,9 @@ namespace AiWand.Api.Controllers
             Result result = new Result(true);
             try
             {
-                _codeDocumentService.Build(input);
-
-                result.Message = "请求已接受，等待生成文档";
+                string doc = _codeDocumentService.Build(input);
+                result.Data = doc;
+                result.Message = "文档生成成功";
             }
             catch (Exception ex)
             {

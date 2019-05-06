@@ -29,7 +29,7 @@ namespace AiWand.Core.Configuration
         public DatabaseConfig()
         {
             //从配置中心获取数据库配置
-            ConnectionString = "server=127.0.0.1;PORT=3306;database=aiwand;uid=root;pwd=zwl@AP.)0706439;Connection Timeout=60;Allow Zero Datetime=True;Allow User Variables=True;pooling=true;min pool size=5;max pool size=512;SslMode=None;";
+            ConnectionString = "server=47.106.235.8;PORT=13306;database=aiwand;uid=root;pwd=zwl@Ap0706439#;Connection Timeout=60;Allow Zero Datetime=True;Allow User Variables=True;pooling=true;min pool size=5;max pool size=512;SslMode=None;";
             SqlScriptPath = string.Empty;
             Provider = "MySqlProvider";
             DbConfig = this;

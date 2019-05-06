@@ -12,6 +12,6 @@ namespace AiWand.Service.CodeDocument
         /// </summary>
         /// <param name="input">参数</param>
         /// <returns>文档连接</returns>
-        void Build(BuildInput input);
+        string Build(BuildInput input);
     }
 }

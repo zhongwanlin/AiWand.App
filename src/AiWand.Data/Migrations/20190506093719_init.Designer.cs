@@ -3,14 +3,16 @@ using System;
 using AiWand.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AiWand.Data.Migrations
 {
     [DbContext(typeof(AiWandDataContext))]
-    partial class AiWandDataContextModelSnapshot : ModelSnapshot
+    [Migration("20190506093719_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
