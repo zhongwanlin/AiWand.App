@@ -11,5 +11,7 @@ namespace AiWand.Service.Login
         User Login(LoginInput loginUser);
 
         User Regster(User registerUser);
+
+        bool HasLogin(string token);
     }
 }

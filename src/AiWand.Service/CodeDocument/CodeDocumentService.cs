@@ -131,7 +131,7 @@ namespace AiWand.Service.CodeDocument
         List<string> GetFile(string path, string language)
         {
             //获取已经被使用的文件
-            List<string> codePaths = _codePathRepository.Table.Select(c=>c.CodeFilePath).ToList();
+            List<string> codePaths = _codePathRepository.Table.Select(c => c.CodeFilePath).ToList();
 
             List<string> files = new List<string>();
             if (Directory.Exists(path))
@@ -196,12 +196,17 @@ namespace AiWand.Service.CodeDocument
             {
                 fileExtensions.AddRange(LanguageExtension.C);
             }
+            if (fileExtensions.Count == 0)
+            {
+                throw new Exception($"暂不支持该语言{language}");
+            }
             return fileExtensions;
         }
 
         static string CreateDoc(string fileName, string title, string content)
         {
-            var wordFileName = $"{fileName}.docx";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+            var wordFileName = $"{path}/{fileName}.docx";
             using (var fs = new FileStream(wordFileName, System.IO.FileMode.Create, FileAccess.Write))
             {
                 XWPFDocument doc = WordHelper.Createm_DocxPage();
@@ -225,7 +230,24 @@ namespace AiWand.Service.CodeDocument
                 doc.Write(fs);
             }
 
-            return wordFileName;
+            return Path.GetFileName(wordFileName);
+        }
+
+
+        public List<Core.Domain.CodeDocuments.CodeDocument> GetCodeDocuments(string companyName, string language)
+        {
+            var documents = _codeDocumentRepository.Table;
+
+            if (string.IsNullOrWhiteSpace(companyName) == false)
+            {
+                documents = documents.Where(c => c.CompanyName.Contains(companyName));
+            }
+            if (string.IsNullOrWhiteSpace(language) == false)
+            {
+                documents = documents.Where(c => c.Language == language);
+            }
+
+            return documents.ToList();
         }
     }
 }

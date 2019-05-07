@@ -13,5 +13,7 @@ namespace AiWand.Service.CodeDocument
         /// <param name="input">参数</param>
         /// <returns>文档连接</returns>
         string Build(BuildInput input);
+
+        List<Core.Domain.CodeDocuments.CodeDocument> GetCodeDocuments(string companyName, string language);
     }
 }
