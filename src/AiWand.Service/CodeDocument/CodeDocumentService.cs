@@ -50,6 +50,11 @@ namespace AiWand.Service.CodeDocument
             //读取代码内容
             CodeFileDto codeFile = GetContent(input);
 
+            if (codeFile == null)
+            {
+                throw new Exception("找不到文件");
+            }
+
             //生成文档
             string fileName = $"{input.CompanyName}[{input.CompanyAbb}]-({input.Language})";
             string docName = CreateDoc(fileName, input.CompanyName + "项目代码", codeFile.Content.ToString());
@@ -97,7 +102,7 @@ namespace AiWand.Service.CodeDocument
 
         private CodeFileDto GetContent(BuildInput input)
         {
-            string path = @"D:\python";
+            string path = @"/home/eShopOnContainers";
 
             if (Directory.Exists(path))
             {
