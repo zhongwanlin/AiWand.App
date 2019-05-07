@@ -40,7 +40,7 @@ namespace AiWand.Api.Controllers
             catch (Exception ex)
             {
                 result.IsSuccessed = false;
-                result.Message = ex.Message;
+                result.Message = ex.ToString();
             }
             return new JsonResult(result);
         }
