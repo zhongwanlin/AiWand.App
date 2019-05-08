@@ -16,11 +16,11 @@ namespace AiWand.Service.CodeDocument
     public class CodeDocumentService : ICodeDocumentService
     {
         private readonly IRepository<Core.Domain.CodeDocuments.CodeDocument> _codeDocumentRepository;
-        private readonly IRepository<CodePath> _codePathRepository;
+        private readonly IRepository<CodeDocumentPath> _codePathRepository;
         private readonly AiWandDataContext _dbContext;
 
         public CodeDocumentService(IRepository<Core.Domain.CodeDocuments.CodeDocument> codeDocumentRepository,
-            IRepository<CodePath> codePathRepository,
+            IRepository<CodeDocumentPath> codePathRepository,
             AiWandDataContext dbContext)
         {
             _codeDocumentRepository = codeDocumentRepository;
@@ -75,10 +75,10 @@ namespace AiWand.Service.CodeDocument
                 Url = ""
             };
 
-            List<CodePath> codePaths = new List<CodePath>();
+            List<CodeDocumentPath> codePaths = new List<CodeDocumentPath>();
             for (int i = 0; i < codeFile.FileNames.Count; i++)
             {
-                CodePath codePath = new CodePath
+                CodeDocumentPath codePath = new CodeDocumentPath
                 {
                     DocumentId = document.Id,
                     CodeFile = codeFile.FileNames[i],
@@ -121,7 +121,7 @@ namespace AiWand.Service.CodeDocument
                     codeFile.FileNames.Add(Path.GetFileName(file));
                     codeFile.Contents.AddRange(File.ReadAllLines(file));
                     codeFile.Content.AppendLine(File.ReadAllText(file));
-                    if (codeFile.Contents.Count >= 4000)
+                    if (codeFile.Contents.Count >= 4200)
                     {
                         break;
                     }

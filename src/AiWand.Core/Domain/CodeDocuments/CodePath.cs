@@ -4,18 +4,12 @@ using System.Text;
 
 namespace AiWand.Core.Domain.CodeDocuments
 {
-    public class CodePath : BaseDomain
+    public class CodePath
     {
         /// <summary>
-        /// 文档Id
+        /// Gets or sets the entity identifier
         /// </summary>
-        public string DocumentId { get; set; }
-
-        /// <summary>
-        /// 代码文件路径
-        /// </summary>
-        public string CodeFilePath { get; set; }
-
-        public string CodeFile { get; set; }
+        [StringLength(32)]
+        public string Id { get; set; } = Guid.NewGuid().ToString("N");
     }
 }
