@@ -210,7 +210,7 @@ namespace AiWand.Service.CodeDocument
 
         static string CreateDoc(string fileName, string title, string content)
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/doc");
             var wordFileName = $"{path}/{fileName}.docx";
             using (var fs = new FileStream(wordFileName, System.IO.FileMode.Create, FileAccess.Write))
             {
