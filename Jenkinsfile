@@ -8,7 +8,7 @@ applicationname="app";
 mybuildpath="${workpath}/src/AiWand.Api";
 
 /////// 编译构建（主要工作编译程序，生成镜像，将镜像推送到私有仓）
-node 
+node("test_node_01")
 {
     stage('获取代码'){
         try{
