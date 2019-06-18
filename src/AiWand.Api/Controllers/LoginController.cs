@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AiWand.Core;
+using AiWand.Core.Attributes;
 using AiWand.Core.DTO.Users;
 using AiWand.Service.Login;
 using AiWand.Service.Users;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,7 +15,7 @@ namespace AiWand.Api.Controllers
 {
     [Route("api/login")]
     [ApiController]
-    public class LoginController : ControllerBase
+    public class LoginController : BaseController
     {
         private readonly ILoginService _loginService;
 
@@ -22,6 +24,7 @@ namespace AiWand.Api.Controllers
             _loginService = loginService;
         }
 
+        [UnAuth]
         [HttpPost]
         public ActionResult Login([FromBody]LoginInput input)
         {
@@ -36,7 +39,7 @@ namespace AiWand.Api.Controllers
             else
             {
                 result.IsSuccessed = true;
-                LoginOutput output = new LoginOutput { UserName = user.UserName, Token = "" };
+                LoginOutput output = new LoginOutput { UserName = user.UserName, Token = user.Token };
                 result.Data = output;
             }
 
